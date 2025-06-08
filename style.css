@@ -1,45 +1,64 @@
 
 body {
-  margin: 0;
-  padding: 0;
-  background-color: #222;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    margin: 0;
+    background: #111;
+    overflow: hidden;
 }
 
-#game {
-  position: relative;
-  width: 400px;
-  height: 600px;
-  background-color: #444;
+.game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #222;
 }
 
-#wall {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
+.stone-wall {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .item {
-  position: absolute;
-  width: 60px;
-  cursor: pointer;
+    position: absolute;
+    width: 80px;
+    transition: opacity 0.3s ease;
 }
 
-#ring { top: 100px; left: 80px; }
-#button1 { top: 250px; left: 60px; }
-#button2 { top: 200px; left: 200px; }
+.ring {
+    top: 40%;
+    left: 60%;
+}
+
+.button1 {
+    top: 50%;
+    left: 30%;
+}
+
+.button2 {
+    top: 65%;
+    left: 70%;
+}
 
 #pickaxe {
-  position: absolute;
-  bottom: 10px;
-  left: 170px;
-  width: 60px;
-  z-index: 2;
-  cursor: pointer;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    width: 100px;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.swing {
+    animation: swing 0.3s ease;
+}
+
+@keyframes swing {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    50% { transform: translateX(-50%) rotate(-30deg); }
+    100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+.dug {
+    opacity: 0.3;
+    filter: grayscale(100%);
 }
